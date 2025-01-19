@@ -1,27 +1,15 @@
 pipeline {
     agent any
+    environment {
+	DOCKER_IMAGE = 'my-project:latest'
+    }
     stages {
         stage('Build') {
             steps {
                 echo "Building the project..."
                 sh '''
                 echo "build prj"
-                '''
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing..."
-                sh '''
-                echo "test prj"
-                '''
-            }
-        }
-        stage('Deliver') {
-            steps {
-                echo "Deliver..."
-                sh '''
-                echo "doing delivery"
+		checkout scm
                 '''
             }
         }
