@@ -15,9 +15,11 @@ pipeline {
         }
 	stage('Build Image') {
 	    steps {
-		echo "Building docker image"
-		docker build -t ${DOCKER_IMAGE} .
-	    }
+		script {
+		    echo 'building docker image'
+		    sh "docker build -t ${DOCKER_IMAGE} ."
+		}
+	    }	
 	}
     }
 }
