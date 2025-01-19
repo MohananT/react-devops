@@ -4,7 +4,7 @@ pipeline {
 	DOCKER_IMAGE = 'my-project:latest'
     }
     stages {
-        stage('Build') {
+        stage('Checkout code') {
             steps {
                 echo "Building the project..."
                 sh '''
@@ -13,5 +13,11 @@ pipeline {
 		checkout scm
             }
         }
+	stage('Build Image') {
+	    steps {
+		echo "Building docker image"
+		docker build -t ${DOCKER_IMAGE} .
+	    }
+	}
     }
 }
