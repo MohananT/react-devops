@@ -9,8 +9,8 @@ pipeline {
                 echo "Building the project..."
                 sh '''
                 echo "build prj"
-		checkout scm
                 '''
+		checkout scm
             }
         }
     }
