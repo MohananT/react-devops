@@ -26,7 +26,7 @@ pipeline {
 	    steps {
 		script {
 		    sh """
-		    docker inspect registry || docker run -d -p 5000:5173 --name registry registry:2 || true
+		    docker inspect registry || docker run -d -p 3000:5173 --name registry registry:2 || true
 		    """
 		}
 	    }
