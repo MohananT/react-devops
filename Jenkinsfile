@@ -26,7 +26,7 @@ pipeline {
 	    steps {
 		script {
 		    sh """
-		    docker inspect registry || docker run -d -p 3000:5173 --name registry registry:2 || true
+		    docker inspect registry || docker run -d -p 5000:5000 --name registry registry:2 || true
 		    """
 		}
 	    }
@@ -47,7 +47,7 @@ pipeline {
 		    sh """
 			docker stop my-container || true
 			docker rm my-container || true
-			docker run -d -p 3000:3000 --name my-container ${LOCAL_REGISTRY}/${DOCKER_IMAGE}
+			docker run -d -p 3000:5173 --name my-container ${LOCAL_REGISTRY}/${DOCKER_IMAGE}
 		    """
 		}
 	    }
