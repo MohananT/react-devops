@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div>
-        This is a test app
+        This is not a test app, serious app to test jenkins pipeline
       </div>
     </>
   )
