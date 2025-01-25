@@ -25,9 +25,8 @@ pipeline {
 	stage('Run Docker Registry') {
 	    steps {
 		script {
-		    sh """
-	    docker inspect registry || docker run -d -p 5000:5000 --name registry registry:2 || true
-		    """
+		    echo "Runs shell to run registry"
+		    sh './shell.sh'
 		}
 	    }
 	}
