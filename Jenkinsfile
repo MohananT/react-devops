@@ -26,6 +26,7 @@ pipeline {
 	    steps {
 		script {
 		    echo "Runs shell to run registry"
+		    sh 'chmod +x ./shell.sh'
 		    sh './shell.sh'
 		}
 	    }
